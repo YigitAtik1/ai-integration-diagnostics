@@ -52,7 +52,7 @@ Future Components
 | Pydantic | Data validation | Implemented |
 | Uvicorn | ASGI server | Implemented |
 | Pytest | Automated testing | Implemented |
-| HTTPX | HTTP testing | Implemented |
+| HTTPX2 | HTTP testing | Implemented |
 | Linux / WSL 2 | Development environment | Implemented |
 | PostgreSQL | Event persistence | Planned |
 | Docker | Containerization | Planned |
@@ -142,10 +142,11 @@ python -m pytest -v
 | Scenario | Expected Result | Status |
 |---|---|---|
 | Health endpoint | HTTP 200 | Automated — PASS |
-| Valid integration event | HTTP 200 | Manual — PASS |
-| Invalid status code type | HTTP 422 | Manual — PASS |
+| Valid integration event | HTTP 200 | Automated — PASS |
+| Invalid status code type | HTTP 422 | Automated — PASS |
+| Missing required field | HTTP 422 | Automated — PASS |
 
-Latest automated test result: **1 passed, 1 dependency deprecation warning.**
+Latest automated test result: **4 passed, 0 warnings.**
 
 ## Development Roadmap
 
@@ -155,7 +156,8 @@ Latest automated test result: **1 passed, 1 dependency deprecation warning.**
 - [x] Event ingestion endpoint
 - [x] Manual positive and negative API testing
 - [x] Initial automated API test
-- [ ] Extended automated test coverage
+- [x] Extended automated API validation tests
+- [x] HTTP client dependency migration
 - [ ] Domain-specific validation
 - [ ] Integration failure simulation
 - [ ] Deterministic diagnostic engine
