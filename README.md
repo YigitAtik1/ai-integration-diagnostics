@@ -20,6 +20,9 @@ This project aims to build an extensible diagnostic platform that combines tradi
 - Modular API and data model architecture
 - Manual HTTP testing using curl
 - Automated API testing using pytest and TestClient
+- Domain-specific event validation
+- Parametrized API testing
+- Boundry value testing 
 
 ## Architecture
 
@@ -145,8 +148,10 @@ python -m pytest -v
 | Valid integration event | HTTP 200 | Automated — PASS |
 | Invalid status code type | HTTP 422 | Automated — PASS |
 | Missing required field | HTTP 422 | Automated — PASS |
+| Invalid domain values (6 cases) | HTTP 422 | Automated — PASS |
+| Valid boundary values (2 cases) | HTTP 200 | Automated — PASS |
 
-Latest automated test result: **4 passed, 0 warnings.**
+Latest automated test result: **12 passed, 0 warnings.**
 
 ## Development Roadmap
 
@@ -158,7 +163,9 @@ Latest automated test result: **4 passed, 0 warnings.**
 - [x] Initial automated API test
 - [x] Extended automated API validation tests
 - [x] HTTP client dependency migration
-- [ ] Domain-specific validation
+- [x] Domain-specific validation
+- [x] Parametrized validation tests
+- [x] Boundary value testing
 - [ ] Integration failure simulation
 - [ ] Deterministic diagnostic engine
 - [ ] PostgreSQL persistence
@@ -180,9 +187,8 @@ Latest automated test result: **4 passed, 0 warnings.**
 
 - Diagnostic reasoning and AI capabilities are not implemented yet.
 - Events are validated but not persisted.
-- Domain-specific validation rules are pending.
-- Automated test coverage is currently limited to the health endpoint.
-- A Starlette HTTP client deprecation warning remains under investigation.
+- Cross-field validation is not implemented yet.
+- Multi-service event correlation is pending.
 
 ---
 
